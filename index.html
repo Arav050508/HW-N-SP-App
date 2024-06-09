@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlanner Pro: Your Academic Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>EduPlanner Pro: Your Academic Assistant</h1>
+        <form id="task-form">
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name" placeholder="Enter task name" required>
+            
+            <label for="subject">Subject:</label>
+            <select id="subject" required>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="SS">Social Studies</option>
+                <option value="ELA">English Language Arts</option>
+            </select>
+
+            <label for="task-desc">Description:</label>
+            <textarea id="task-desc" placeholder="Enter task description..." required></textarea>
+            
+            <label for="due-date">Due Date:</label>
+            <input type="datetime-local" id="due-date" required>
+
+            <label for="task-type">Task Type:</label>
+            <select id="task-type" required>
+                <option value="homework">Homework</option>
+                <option value="project">Project</option>
+                <option value="exam">Exam</option>
+            </select>
+
+            <label for="reminder-interval">Reminder Interval:</label>
+            <select id="reminder-interval" required>
+                <option value="3600000">1 hour</option>
+                <option value="1800000">30 minutes</option>
+                <option value="900000">15 minutes</option>
+                <option value="600000">10 minutes</option>
+                <option value="300000">5 minutes</option>
+            </select>
+            
+            <label for="group-members">Group Members (comma-separated emails):</label>
+            <input type="email" id="group-members" placeholder="Enter emails" multiple>
+            
+            <div class="button-container">
+                <button type="submit">Add Task</button>
+                <input type="file" id="import-tasks" accept=".json">
+                <button id="export-tasks">Export Tasks</button>
+            </div>
+        </form>
+        <div id="message"></div>
+        <div id="task-buckets">
+            <div id="homework-list" class="task-section">
+                <h2>Homework</h2>
+                <div class="task-container"></div>
+            </div>
+            <div id="project-list" class="task-section">
+                <h2>Projects</h2>
+                <div class="task-container"></div>
+            </div>
+            <div id="exam-list" class="task-section">
+                <h2>Exams</h2>
+                <div class="task-container"></div>
+            </div>
+        </div>
+        <div id="calendar"></div>
+        <div class="button-container">
+            <button id="dark-theme-toggle">Toggle Dark Theme</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
